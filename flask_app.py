@@ -40,5 +40,5 @@ def Topic_modeling():
         print(problem_cat)
         return jsonify(results = {problem:problem_cat[0][0]})
 if __name__ == "__main__":
-        app.run(host='0.0.0.0', port=9002)
+        app.run(host='0.0.0.0', port=9001)
                                         

@@ -100,12 +100,12 @@ class Topic():
 		# Define model and setup tensorboard
         self.model = tflearn.DNN(net, tensorboard_dir='tflearn_logs')
         self.model.fit(train_x, train_y, n_epoch=self.epoch, batch_size=8, show_metric=True)
-        self.model.save('/app/akshaydtada/without/model_Topic.tflearn')
+        self.model.save('/app/akshaydtada/checkpointaiap/model_Topic.tflearn')
         pickle.dump( {'words':self.words, 'classes':self.classes, 'train_x':train_x, 'train_y':train_y}, open( "/without/Path_training_data", "wb" ) )
 
 
     def reloadModelAndData(self):
-        data = pickle.load( open("/app/akshaydtada/without/Path_training_data", "rb" ) )
+        data = pickle.load( open("/without/Path_training_data", "rb" ) )
         #data = {'words':words, 'classes':classes, 'train_x':train_x, 'train_y':train_y}
         self.words = data['words']
         self.classes = data['classes']
@@ -124,7 +124,7 @@ class Topic():
 # Define model and setup tensorboard
         self.model = tflearn.DNN(net, tensorboard_dir='tflearn_logs')
 # load our saved model
-        self.model.load('/app/akshaydtada/without/model_Topic.tflearn')
+        self.model.load('/app/akshaydtada/checkpointaiap/model_Topic.tflearn')
         
     def classify(self,sentence):
 	    	# generate probabilities from the model
